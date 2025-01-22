@@ -1,0 +1,71 @@
+#include <stdio.h>
+
+void convertInches() {
+    float inches, feet, meters;
+    printf("Enter value in Inches: ");
+    scanf("%f", &inches);
+
+    feet = inches / 12;
+    meters = inches * 0.0254;
+
+    printf("%.2f Inches = %.2f Feet\n", inches, feet);
+    printf("%.2f Inches = %.2f Meters\n", inches, meters);
+}
+
+void convertFeet() {
+    float feet, inches, meters;
+    printf("Enter value in Feet: ");
+    scanf("%f", &feet);
+
+    inches = feet * 12;
+    meters = feet * 0.3048;
+
+    printf("%.2f Feet = %.2f Inches\n", feet, inches);
+    printf("%.2f Feet = %.2f Meters\n", feet, meters);
+}
+
+void convertMeters() {
+    float meters, inches, feet;
+    printf("Enter value in Meters: ");
+    scanf("%f", &meters);
+
+    inches = meters / 0.0254;
+    feet = meters / 0.3048;
+
+    printf("%.2f Meters = %.2f Inches\n", meters, inches);
+    printf("%.2f Meters = %.2f Feet\n", meters, feet);
+}
+
+int main() {
+    int choice;
+
+    printf("Unit Converter - Length (Inches, Feet, Meters)\n");
+    printf("1. Convert Inches to Feet and Meters\n");
+    printf("2. Convert Feet to Inches and Meters\n");
+    printf("3. Convert Meters to Inches and Feet\n");
+    printf("4. Exit\n");
+
+    while(1) {
+        printf("\nEnter your choice (1-4): ");
+        scanf("%d", &choice);
+
+        switch(choice) {
+            case 1:
+                convertInches();
+                break;
+            case 2:
+                convertFeet();
+                break;
+            case 3:
+                convertMeters();
+                break;
+            case 4:
+                printf("Exiting the program.\n");
+                return 0;
+            default:
+                printf("Invalid choice! Please select between 1 and 4.\n");
+        }
+    }
+
+    return 0;
+}
